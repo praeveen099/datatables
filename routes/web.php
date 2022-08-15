@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('posts', function () {
-    return view('posts',[
+    return view('app',[
         'posts' => Post::all()
     ]);
 });
