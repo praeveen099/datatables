@@ -2,6 +2,8 @@
 
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +20,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('posts', function () {
-    return view('app',[
-        'posts' => Post::all()
-    ]);
-});
+// Route::get('posts', function () {
+//     return view('app',[
+//         'posts' => Post::all()
+//     ]);
+// });
+
+Route::resource('posts', PostsController::class);
+Route::resource('users', UsersController::class);
+
 
