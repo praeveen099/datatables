@@ -1,7 +1,9 @@
 <?php
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Yajra\DataTables\Facades\DataTables;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\UsersController;
 
@@ -27,6 +29,21 @@ Route::get('/', function () {
 // });
 
 Route::resource('posts', PostsController::class);
-Route::resource('users', UsersController::class);
+Route::get('/users', [UsersController::class, 'index']);
 
+// Route::get('user-data', function() {
+//     $model = User::query();
+
+//     $jsonResponse =  Datatables::eloquent($model)
+//                 ->addColumn('intro', 'Hi {{$name}}!')
+//                 ->make();
+
+//     $data = json_decode($jsonResponse->content(), TRUE);
+//     return $data["data"];
+// });
+
+// this will get all the users
+Route::get('usersForDatatable', [UsersController::class, 'getUsers'])->name('get.users');
+// this will load the view
+Route::get('user-data', [UsersController::class, 'indexDataTable']);
 
