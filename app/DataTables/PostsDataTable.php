@@ -49,7 +49,7 @@ class PostsDataTable extends DataTable
                     ->setTableId('posts-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->orderBy(1);
+                    ->orderBy(0);
     }
 
     /**
@@ -60,6 +60,7 @@ class PostsDataTable extends DataTable
     protected function getColumns(): array
     {
         return [
+            'id',
             'user_id',
             'body',
         ];
