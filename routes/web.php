@@ -47,3 +47,9 @@ Route::get('usersForDatatable', [UsersController::class, 'getUsers'])->name('get
 // this will load the view
 Route::get('user-data', [UsersController::class, 'indexDataTable']);
 
+// this will get all the users
+Route::get('postsForDatatable', [PostsController::class, 'getPosts'])->name('get.posts');
+// this will load the view
+Route::get('post-data', [PostsController::class, 'indexDataTable']);
+
+
