@@ -26,6 +26,9 @@ class PostsController extends Controller
                     return $post->id;
                 })
                 ->setRowAttr(['align' => 'center'])
+                ->addColumn('author', function(Post $post) {
+                    return  $post->user->name;
+                })
                 ->make(true);
     }
 

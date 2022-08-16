@@ -5,6 +5,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Author</th>
                 <th>Title</th>
                 <th>Excerpt</th>
             </tr>
@@ -21,6 +22,7 @@ $(function() {
         ajax: '{!! route('get.posts') !!}',
         columns: [
             { data: 'id', name: 'id' },
+            { data: 'author', name: 'author' },
             { data: 'title', name: 'title' },
             { data: 'excerpt', name: 'excerpt'}
         ]
