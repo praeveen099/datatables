@@ -29,6 +29,9 @@ class PostsController extends Controller
                 ->addColumn('author', function(Post $post) {
                     return  $post->user->name;
                 })
+                ->editColumn('created_at', function(Post $post) {
+                    return  $post->created_at->diffForHumans();
+                })
                 ->make(true);
     }
 

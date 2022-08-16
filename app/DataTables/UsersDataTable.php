@@ -35,7 +35,7 @@ class UsersDataTable extends DataTable
      */
     public function query(User $model): QueryBuilder
     {
-        return $model->newQuery();
+        return $model->newQuery()->select('name', 'id');
     }
 
     /**
@@ -49,7 +49,7 @@ class UsersDataTable extends DataTable
                     ->setTableId('users-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->orderBy(1);
+                    ->orderBy(0);
     }
 
     /**
@@ -60,8 +60,8 @@ class UsersDataTable extends DataTable
     protected function getColumns(): array
     {
         return [
-            'name',
             'id',
+            'name',
         ];
     }
 
