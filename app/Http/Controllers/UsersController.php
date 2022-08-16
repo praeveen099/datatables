@@ -37,8 +37,13 @@ class UsersController extends Controller
     public function getUsers()
     {
         return Datatables::of(User::query())
-        ->addColumn('intro', 'Hi {{$name}}!')
-        ->make(true);
+                ->setRowId(function ($user) {
+                    return $user->id;
+                })
+                ->setRowAttr(['align' => 'center'])
+                ->setRowData(['data-name' => 'row-{{$name}}'])
+                ->addColumn('intro', 'Hi {{$name}}!', 2)
+                ->make(true);
     }
 
     /**

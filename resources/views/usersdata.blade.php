@@ -6,6 +6,7 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
+                <th>Intro</th>
                 <th>Email</th>
             </tr>
         </thead>
@@ -22,6 +23,7 @@ $(function() {
         columns: [
             { data: 'id', name: 'id' },
             { data: 'name', name: 'name' },
+            { data: 'intro', name: 'intro' },
             { data: 'email', name: 'email' }
         ]
     });
